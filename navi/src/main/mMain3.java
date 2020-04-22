@@ -1,5 +1,5 @@
 package main;
-//노가다 flowlayerout
+//노가다 panel로 묶음
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
@@ -12,14 +12,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 public class mMain3 {
 	public static void main(String[] args) {
 
 		Frame f = new Frame("문장 입력기");
 		Font font = new Font("", Font.PLAIN, 18);
-		
-		f.setBounds(200, 200, 1000, 800);
+		f.setLayout(null);
+		f.setBounds(20, 20, 1000, 1000);
 		f.setBackground(Color.lightGray);
 
 
@@ -28,12 +29,12 @@ public class mMain3 {
 		addP.setLayout(null);
 		addP.setFont(font);
 		addP.setBackground(Color.DARK_GRAY);
-		addP.setBounds(0, 700, 1000, 100);
+		addP.setBounds(0, 900, 1000, 100);
 		Button addB = new Button("추가");
 		addB.setBounds(105, 25, 100, 50);
 
-		Button deleteB = new Button("????");
-		deleteB.setBounds(330, 25, 100, 50);
+		Button newaddB = new Button("새지점 입력");
+		newaddB.setBounds(330, 25, 100, 50);
 
 		Button makeB = new Button("새로만들기");
 		makeB.setBounds(555, 25, 100, 50);
@@ -43,65 +44,86 @@ public class mMain3 {
 
 		addP.add(makeB);
 		addP.add(loadB);
-		addP.add(deleteB);
+		addP.add(newaddB);
 		addP.add(addB);
 		//하단부 추가 버튼
 
 		//경로 추가 
-		Panel locate = new Panel();
-		
-		TextField tf1 = new TextField(20);
 		Font font2 = new Font("", Font.PLAIN, 40);
-		tf1.setFont(font2);
-		Button add = new Button("입력");
-		add.setPreferredSize(new Dimension(150,40));
-		Button delete = new Button("삭제");
-		delete.setPreferredSize(new Dimension(150,40));
 		
-		locate.add(tf1);
-		locate.add(add);
-		locate.add(delete);
-		//경로 추가
-		TextField tf2 = new TextField(20);
-		tf2.setBounds(100, 200, 500, 80);
-		Button add2 = new Button("입력");
-		add2.setBounds(630, 200, 150, 80);
-		Button delete2 = new Button("삭제");
-		delete2.setBounds(800, 200, 150, 80);
-		//경로2
-		TextField tf3 = new TextField(20);
-		tf3.setBounds(100, 300, 500, 80);
-		Button add3 = new Button("입력");
-		add3.setBounds(630, 300, 150, 80);
-		Button delete3 = new Button("삭제");
-		delete3.setBounds(800, 300, 150, 80);
+		int loX = 0;
+		int loY = 50;
+		int siX =900;
+		int siY =50;
+		int g = 50;
 		
-		
+		PanelMaker  pm =  new PanelMaker(loX, loY, siX, siY);
+		PanelMaker  pm1 =  new PanelMaker(loX, loY+g, siX, siY);
+		PanelMaker  pm2 =  new PanelMaker(loX, loY+2*g, siX, siY);
+		PanelMaker  pm3 =  new PanelMaker(loX, loY+3*g, siX, siY);
+		PanelMaker  pm4 =  new PanelMaker(loX, loY+4*g, siX, siY);
+		PanelMaker  pm5 =  new PanelMaker(loX, loY+5*g, siX, siY);
+		PanelMaker  pm6 =  new PanelMaker(loX, loY+6*g, siX, siY);
+		PanelMaker  pm7 =  new PanelMaker(loX, loY+7*g, siX, siY);
+		PanelMaker  pm8 =  new PanelMaker(loX, loY+8*g, siX, siY);
+		PanelMaker  pm9 =  new PanelMaker(loX, loY+9*g, siX, siY);
+		PanelMaker  pm10 =  new PanelMaker(loX, loY+10*g, siX, siY);
+				
 		addB.addActionListener(new ActionListener() {
-
-			int addcnt = 0; //추가버튼 누르는 횟수
+			 
+			 //추가버튼 누르는 횟수
+			int cnt =0;
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				addcnt++;
-				if(addcnt == 1) {
-				locate.add(tf2);
-				locate.add(add2);
-				locate.add(delete2);
-				}
+				cnt++;
 				
-				if(addcnt == 2) {
-					locate.add(tf3);
-					locate.add(add3);
-					locate.add(delete3);
-				}
-				
+					if(cnt == 1) {
+						f.add(pm1);
+						f.resize(1001,1000);
+					}
+					if(cnt == 2) {
+						f.add(pm2);
+						f.resize(1000,1000);
+					}
+					if(cnt == 3) {
+						f.add(pm3);
+						f.resize(1001,1000);
+					}
+					if(cnt == 4) {
+						f.add(pm4);
+						f.resize(1000,1000);
+					}
+					if(cnt == 5) {
+						f.add(pm5);
+						f.resize(1001,1000);
+					}
+					if(cnt == 6) {
+						f.add(pm6);
+						f.resize(1000,1000);
+					}
+					if(cnt == 7) {
+						f.add(pm7);
+						f.resize(1001,1000);
+					}
+					if(cnt == 8) {
+						f.add(pm8);
+						f.resize(1000,1000);
+					}
+					if(cnt == 9) {
+						f.add(pm9);
+						f.resize(1001,1000);
+					}
+					if(cnt == 10) {
+						f.add(pm10);
+						f.resize(1000,1000);
+					}
 				
 			}
 		});
-
-
-		f.add(locate, BorderLayout.CENTER);//경로 추가 패널
-		f.add(addP, BorderLayout.SOUTH);//하단 추가 패널
+		
+	
+		f.add(pm);//경로 추가 패널
+		f.add(addP);//하단 추가 패널
 		f.setVisible(true);
 
 		f.addWindowListener(new WindowAdapter() {
